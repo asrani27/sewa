@@ -1,29 +1,29 @@
-jQuery(function($) {
+jQuery(function ($) {
     'use strict';
 
     // Nav Scroll
-    $(window).scroll(function(event) {
+    $(window).scroll(function (event) {
         Scroll();
     });
 
-    $('.navbar-collapse ul li a').on('click', function() {
+    $('.navbar-collapse ul li a').on('click', function () {
         $('html, body').animate({
             scrollTop: $(this.hash).offset().top - 5
         }, 1000);
         return false;
     });
- 
+
     function Scroll() {
         var contentTop = [];
         var contentBottom = [];
         var winTop = $(window).scrollTop();
         var rangeTop = 200;
         var rangeBottom = 500;
-        $('.navbar-collapse').find('.scroll a').each(function() {
+        $('.navbar-collapse').find('.scroll a').each(function () {
             contentTop.push($($(this).attr('href')).offset().top);
             contentBottom.push($($(this).attr('href')).offset().top + $($(this).attr('href')).height());
         })
-        $.each(contentTop, function(i) {
+        $.each(contentTop, function (i) {
             if (winTop > contentTop[i] - rangeTop) {
                 $('.navbar-collapse li.scroll')
                     .removeClass('active')
@@ -32,7 +32,7 @@ jQuery(function($) {
         })
     };
 
-    $('#tohash').on('click', function() {
+    $('#tohash').on('click', function () {
         $('html, body').animate({
             scrollTop: $(this.hash).offset().top - 5
         }, 1000);
@@ -40,7 +40,7 @@ jQuery(function($) {
     });
 
     //Slider
-    $(document).ready(function() {
+    $(document).ready(function () {
         var time = 7; // time in seconds
 
         var $progressBar,
@@ -67,10 +67,10 @@ jQuery(function($) {
             transitionStyle: "fade" //fadeUp fade goDown backSlide
 
         });
- 
+
         function progressBar(elem) {
-            $elem = elem; 
-            buildProgressBar(); 
+            $elem = elem;
+            buildProgressBar();
             start();
         }
 
@@ -85,9 +85,9 @@ jQuery(function($) {
             $progressBar.append($bar).appendTo($elem);
         }
 
-        function start() { 
+        function start() {
             percentTime = 0;
-            isPause = false; 
+            isPause = false;
             tick = setInterval(interval, 10);
         };
 
@@ -96,8 +96,8 @@ jQuery(function($) {
                 percentTime += 1 / time;
                 $bar.css({
                     width: percentTime + "%"
-                }); 
-                if (percentTime >= 100) { 
+                });
+                if (percentTime >= 100) {
                     $elem.trigger('owl.next')
                 }
             }
@@ -123,7 +123,7 @@ jQuery(function($) {
     smoothScroll.init();
 
     // portfolio filter
-    $(window).load(function() {
+    $(window).load(function () {
         'use strict';
         var $portfolio_selectors = $('.portfolio-filter >li>a');
         var $portfolio = $('.portfolio-items');
@@ -132,7 +132,7 @@ jQuery(function($) {
             layoutMode: 'fitRows'
         });
 
-        $portfolio_selectors.on('click', function() {
+        $portfolio_selectors.on('click', function () {
             $portfolio_selectors.removeClass('active');
             $(this).addClass('active');
             var selector = $(this).attr('data-filter');
@@ -143,9 +143,9 @@ jQuery(function($) {
         });
     });
 
-    $(document).ready(function() {
+    $(document).ready(function () {
         //Animated Progress
-        $('.progress-bar').bind('inview', function(event, visible, visiblePartX, visiblePartY) {
+        $('.progress-bar').bind('inview', function (event, visible, visiblePartX, visiblePartY) {
             if (visible) {
                 $(this).css('width', $(this).data('width') + '%');
                 $(this).unbind('inview');
@@ -153,8 +153,8 @@ jQuery(function($) {
         });
 
         //Animated Number
-        $.fn.animateNumbers = function(stop, commas, duration, ease) {
-            return this.each(function() {
+        $.fn.animateNumbers = function (stop, commas, duration, ease) {
+            return this.each(function () {
                 var $this = $(this);
                 var start = parseInt($this.text().replace(/,/g, ""));
                 commas = (commas === undefined) ? true : commas;
@@ -165,13 +165,13 @@ jQuery(function($) {
                 }, {
                     duration: duration == undefined ? 1000 : duration,
                     easing: ease == undefined ? "swing" : ease,
-                    step: function() {
+                    step: function () {
                         $this.text(Math.floor(this.value));
                         if (commas) {
                             $this.text($this.text().replace(/(\d)(?=(\d\d\d)+(?!\d))/g, "$1,"));
                         }
                     },
-                    complete: function() {
+                    complete: function () {
                         if (parseInt($this.text()) !== stop) {
                             $this.text(stop);
                             if (commas) {
@@ -183,7 +183,7 @@ jQuery(function($) {
             });
         };
 
-        $('.business-stats').bind('inview', function(event, visible, visiblePartX, visiblePartY) {
+        $('.business-stats').bind('inview', function (event, visible, visiblePartX, visiblePartY) {
             var $this = $(this);
             if (visible) {
                 $this.animateNumbers($this.data('digit'), false, $this.data('duration'));
@@ -192,41 +192,41 @@ jQuery(function($) {
         });
     });
 
-	/* -------- Isotope Filtering -------- */
-		$(document).ready(function(){
-		var $container = $('#isotope-gallery-container');
-		var $filter = $('.filter');
-		$(window).load(function () {
-			// Initialize Isotope
-			$container.isotope({
-				itemSelector: '.gallery-item-wrapper'
-			});
-			$('.filter a').click(function () {
-				var selector = $(this).attr('data-filter');
-				$container.isotope({ filter: selector });
-				return false;
-			});
-			$filter.find('a').click(function () {
-				var selector = $(this).attr('data-filter');
-				$filter.find('a').parent().removeClass('active');
-				$(this).parent().addClass('active');
-			});
-		});
-		$(window).smartresize(function () {
-			$container.isotope('reLayout');
-		});
-		// End Isotope Filtering
+    /* -------- Isotope Filtering -------- */
+    $(document).ready(function () {
+        var $container = $('#isotope-gallery-container');
+        var $filter = $('.filter');
+        $(window).load(function () {
+            // Initialize Isotope
+            $container.isotope({
+                itemSelector: '.gallery-item-wrapper'
+            });
+            $('.filter a').click(function () {
+                var selector = $(this).attr('data-filter');
+                $container.isotope({ filter: selector });
+                return false;
+            });
+            $filter.find('a').click(function () {
+                var selector = $(this).attr('data-filter');
+                $filter.find('a').parent().removeClass('active');
+                $(this).parent().addClass('active');
+            });
+        });
+        $(window).smartresize(function () {
+            $container.isotope('reLayout');
+        });
+        // End Isotope Filtering
 
 
-		/* -------- Gallery Popup -------- */
+        /* -------- Gallery Popup -------- */
 
-			$('.gallery-zoom').magnificPopup({ 
-				type: 'image'
-				// other options
-			});
-		});
-		// End Gallery Popup
-		
+        $('.gallery-zoom').magnificPopup({
+            type: 'image'
+            // other options
+        });
+    });
+    // End Gallery Popup
+
     //Pretty Photo
     $("a[rel^='prettyPhoto']").prettyPhoto({
         social_tools: false
