@@ -22,11 +22,11 @@ class TentangController extends Controller
 
         if ($req->hasFile('file')) {
             $validator = Validator::make($req->all(), [
-                'file' => 'image|mimes:jpeg,png,jpg,gif,svg|max:4096',
+                'file' => 'mimes:jpeg,png,jpg,gif,svg|max:4096',
             ]);
 
             if ($validator->fails()) {
-                toastr()->error('File Harus Berupa Gambar');
+                toastr()->error('File Harus Berupa Gambar dan Maksimal 2MB');
                 return back();
             } else {
                 $path = '/public/' . $data->file;

@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Galery;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Storage;
 use Illuminate\Support\Facades\Validator;
 
 class GaleryController extends Controller
@@ -25,11 +26,11 @@ class GaleryController extends Controller
 
         if ($req->hasFile('file')) {
             $validator = Validator::make($req->all(), [
-                'file' => 'image|mimes:jpeg,png,jpg,gif,svg',
+                'file' => 'mimes:jpeg,png,jpg,gif,svg|max:2048',
             ]);
 
             if ($validator->fails()) {
-                toastr()->error('File Harus Berupa Gambar');
+                toastr()->error('File Harus Berupa Gambar dan Maksimal 2MB');
                 return back();
             } else {
                 $filename = $req->file->getClientOriginalName();
