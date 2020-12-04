@@ -38,7 +38,7 @@
                     <form action="#" accept-charset="UTF-8" class="form form-horizontal" style="margin-bottom: 0;" method="post">
                         <div class="form-group">
                             <div class="col-md-12">
-                                <a class="btn btn-primary" data-toggle='modal' href='#modal-example2'>Pesan Gedung Raya 2</a>
+                                <a class="btn btn-primary" data-toggle='modal' href='#modal-example3'>Pesan Gedung Raya 2</a>
                             </div>
                         </div>
                     </form>
@@ -90,33 +90,73 @@
                 <button aria-hidden='true' class='close' data-dismiss='modal' type='button'>×</button>
                 <h4 class='modal-title' id='myModalLabel'>Pemesanan Gedung Raya 1</h4>
             </div>
+            <form action="/pesan/gedungraya1" accept-charset="UTF-8" class="form" style="margin-bottom: 0;" method="post">
+                @csrf
             <div class='modal-body'>
-                <form action="#" accept-charset="UTF-8" class="form" style="margin-bottom: 0;" method="post">
                     <div class='form-group'>
                         <label for='inputText1'>Nama Pemesan</label>
-                        <input class='form-control' id='inputText1' placeholder='Text field' type='text' required>
+                        <input class='form-control' id='inputText1' placeholder='Nama Pemesan' name="nama" type='text' required>
                     </div><div class='form-group'>
                         <label for='inputText1'>NIK (Boleh Kosong)</label>
-                        <input class='form-control' id='inputText1' placeholder='Text field' type='text'>
+                        <input class='form-control' id='inputText1' placeholder='NIK' name="nik" type='text'>
                     </div>
                     <div class='form-group'>
                         <label for='inputText1'>Telp</label>
-                        <input class='form-control' id='inputText1' placeholder='087715665555' type='text' required>
+                        <input class='form-control' id='inputText1' placeholder='087715665555' name="telp" type='text' required>
                     </div>
                     <div class='form-group'>
                         <label for='inputText1'>Tanggal Acara</label>
-                        <input class='form-control' id='inputText1' type='date' required>
+                        <input class='form-control' id='inputText1' type='date' name="tanggal" required>
                     </div>
                     <div class='form-group'>
                         <label for='inputText1'>Nama Acara</label>
-                        <input class='form-control' id='inputText1' type='text' required>
+                        <input class='form-control' id='inputText1' type='text' name="nama_acara" required>
                     </div>
-                </form>
             </div>
             <div class='modal-footer'>
-                <button class='btn btn-default' data-dismiss='modal' type='button'>Close</button>
-                <button class='btn btn-primary' type='button'>Order</button>
+                <button class='btn btn-default' data-dismiss='modal' type='button'>Keluar</button>
+                <button class='btn btn-primary' type='submit'>Pesan</button>
             </div>
+            </form>
+        </div>
+    </div>
+</div>
+
+<div class='modal fade' id='modal-example3' tabindex='-1'>
+    <div class='modal-dialog'>
+        <div class='modal-content'>
+            <div class='modal-header'>
+                <button aria-hidden='true' class='close' data-dismiss='modal' type='button'>×</button>
+                <h4 class='modal-title' id='myModalLabel'>Pemesanan Gedung Raya 2</h4>
+            </div>
+            <form action="/pesan/gedungraya2" accept-charset="UTF-8" class="form" style="margin-bottom: 0;" method="post">
+                @csrf
+            <div class='modal-body'>
+                    <div class='form-group'>
+                        <label for='inputText1'>Nama Pemesan</label>
+                        <input class='form-control' id='inputText1' placeholder='Nama Pemesan' name="nama" type='text' required>
+                    </div><div class='form-group'>
+                        <label for='inputText1'>NIK (Boleh Kosong)</label>
+                        <input class='form-control' id='inputText1' placeholder='NIK' name="nik" type='text'>
+                    </div>
+                    <div class='form-group'>
+                        <label for='inputText1'>Telp</label>
+                        <input class='form-control' id='inputText1' placeholder='087715665555' name="telp" type='text' required>
+                    </div>
+                    <div class='form-group'>
+                        <label for='inputText1'>Tanggal Acara</label>
+                        <input class='form-control' id='inputText1' type='date' name="tanggal" required>
+                    </div>
+                    <div class='form-group'>
+                        <label for='inputText1'>Nama Acara</label>
+                        <input class='form-control' id='inputText1' type='text' name="nama_acara" required>
+                    </div>
+            </div>
+            <div class='modal-footer'>
+                <button class='btn btn-default' data-dismiss='modal' type='button'>Keluar</button>
+                <button class='btn btn-primary' type='submit'>Pesan</button>
+            </div>
+            </form>
         </div>
     </div>
 </div>

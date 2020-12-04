@@ -54,13 +54,8 @@
             </li>
         </ul>
     </li>
-    <li class=''>
-        <a href='/data/sewa'>
-            <i class='fa fa-table'></i>
-            <span>Sewa Gedung</span>
-        </a>
-    </li>
-    <li class=''>
+    
+    <li class='{{ Request::is('data/transaksi') ? 'active' : '' }}'>
         <a href='/data/transaksi'>
             <i class='fa fa-table'></i>
             <span>Transaksi</span>

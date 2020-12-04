@@ -44,6 +44,12 @@
                             </div>
                         </div>
                         <div class='form-group'>
+                            <label class='col-md-2 control-label' for='inputText1'>DP Wajib</label>
+                            <div class='col-md-5'>
+                                <input class='form-control' value='{{$data->dp}}' name="dp" type='text'>
+                            </div>
+                        </div>
+                        <div class='form-group'>
                             <label class='col-md-2 control-label' for='inputTextArea1'>Fasilitas</label>
                             <div class='col-md-5'>
                                 <textarea class='form-control' id='wysiwyg2'  name='fasilitas' rows='3'>{{$data->fasilitas}}</textarea>

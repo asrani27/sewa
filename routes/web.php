@@ -36,6 +36,11 @@ Route::get('/data/galery/delete/{id}', 'GaleryController@delete');
 Route::get('/data/harga', 'HargaController@index');
 Route::get('/data/harga/edit/{id}', 'HargaController@edit');
 Route::post('/data/harga/edit/{id}', 'HargaController@update');
+Route::get('/data/transaksi', 'TransaksiController@index');
 
 Route::get('/data/kontak', 'KontakController@index');
 Route::post('/data/kontak/edit/{id}', 'KontakController@update');
+
+Route::post('/pesan/gedungraya1', 'SewaController@gedungRaya1');
+Route::post('/pesan/gedungraya2', 'SewaController@gedungRaya2');
+Route::get('/pesanan-saya', 'SewaController@pesananSaya');

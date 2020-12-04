@@ -74,7 +74,7 @@
                         </li>
                         
                         <br>
-                        <li class="plan-purchase"><a class="btn btn-primary" href="#">Pesan Sekarang!</a></li>
+                        <li class="plan-purchase"><a class="btn btn-primary" href="/login">Pesan Sekarang!</a></li>
                     </ul>
                 </div>
             </div>

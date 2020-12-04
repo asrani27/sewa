@@ -184,7 +184,7 @@
             <li class='dropdown dark user-menu'>
                 <a class='dropdown-toggle' data-toggle='dropdown' href='#'>
                     <img width="23" height="23" alt="Mila Kunis" src="/admin/assets/images/avatar.jpg" />
-                    <span class='user-name'>Admin</span>
+                    <span class='user-name'>{{Auth::user()->name}}</span>
                     <b class='caret'></b>
                 </a>
                 <ul class='dropdown-menu'>

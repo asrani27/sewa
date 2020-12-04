@@ -7,7 +7,7 @@
     <div class='page-header page-header-with-buttons'>
         <h1 class='pull-left'>
             <i class='fa fa-photo'></i>
-            <span>Harga</span>
+            <span>Pesanan Saya</span>
         </h1>
         
         {{-- <div class='pull-right'>
@@ -20,7 +20,7 @@
         <div class='col-sm-12'>
             <div class='box bordered-box orange-border' style='margin-bottom:0;'>
                 <div class='box-header blue-background'>
-                    <div class='title'>Harga</div>
+                    <div class='title'>Daftar Transaksi Sewa Gedung</div>
                     <div class='actions'>
                         <a class="btn box-remove btn-xs btn-link" href="#"><i class='fa fa-times'></i>
                         </a>
@@ -35,10 +35,12 @@
                                 <thead>
                                 <tr>
                                     <th>No</th>
-                                    <th>Nama</th>
+                                    <th>Tanggal</th>
+                                    <th>Nama Pemesan</th>
+                                    <th>Telp</th>
+                                    <th>Gedung</th>
                                     <th>Harga</th>
-                                    <th>DP / Uang Muka</th>
-                                    <th>Fasilitas</th>
+                                    <th>Status</th>
                                     <th></th>
                                 </tr>
                                 </thead>
@@ -49,14 +51,28 @@
                                     @foreach ($data as $item)
                                     <tr>
                                         <td>{{$no++}}</td>
-                                        <td>{{$item->judul}}</td>
+                                        <td>{{\Carbon\Carbon::parse($item->tanggal)->format('d M Y')}}</td>
+                                        <td>{{$item->nama}}</td>
+                                        <td>{{$item->telp}}</td>
+                                        <td>Gedung Raya {{$item->gedung}}</td>
                                         <td>@currency($item->harga)</td>
-                                        <td>@currency($item->dp)</td>
-                                        <td>{!!$item->fasilitas!!}</td>
                                         <td>
+                                            @if($item->status == 0)
+                                            Menunggu Konfirmasi
+                                            @elseif($item->status == 1)
+                                            Di setujui
+                                            @else
+                                            Di Tolak
+                                            @endif
+                                        </td>
+                                        <td>
+                                            
                                             <div class='text-right'>
-                                                <a class='btn btn-success btn-xs' href='/data/harga/edit/{{$item->id}}'>
-                                                    <i class='fa fa-edit'></i>
+                                                <a class='btn btn-success btn-xs' href='/data/slideshow/edit/{{$item->id}}'>
+                                                    Setujui
+                                                </a>
+                                                <a class='btn btn-danger btn-xs' href='/data/slideshow/edit/{{$item->id}}'>
+                                                    Tolak
                                                 </a>
                                             </div>
                                         </td>
