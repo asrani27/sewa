@@ -9,6 +9,8 @@ Route::get('/harga', 'FrontController@harga');
 Route::get('/kontak', 'FrontController@kontak');
 Route::get('/login', 'LoginController@index');
 Route::post('/login', 'LoginController@login');
+Route::get('/register', 'LoginController@register');
+Route::post('/register', 'LoginController@storeRegister');
 
 Route::get('/home', 'HomeController@index');
 Route::get('/ganti-password', 'HomeController@gantipass');

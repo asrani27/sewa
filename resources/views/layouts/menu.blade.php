@@ -5,6 +5,7 @@
             <span>Dashboard</span>
         </a>
     </li>
+    @if(Auth::user()->hasRole('admin'))
     <li class='{{ Request::is('data*') ? 'active' : '' }}'>
         <a class="dropdown-collapse" href="#"><i class='fa fa-pencil-square-o'></i>
             <span>Tampilan Depan</span>
@@ -65,6 +66,15 @@
             <span>Transaksi</span>
         </a>
     </li>
+    @else
+    
+    <li class='{{ Request::is('pesanan-saya') ? 'active' : '' }}'>
+        <a href='/pesanan-saya'>
+            <i class='fa fa-tachometer'></i>
+            <span>Pesanan Saya</span>
+        </a>
+    </li>
+    @endif
     <li class=''>
         <a href='/ganti-password'>
             <i class='fa fa-key'></i>
