@@ -204,6 +204,7 @@
 
         y = calendarDate.getFullYear();
 
+        var jadwalGedung1 = {!!json_encode($jadwalGedung1)!!}
         cal = $(".full-calendar-demo").fullCalendar({
             header: {
                 center: "title",
@@ -239,26 +240,7 @@
             },
             eventClick: function(calEvent, jsEvent, view) {
                 return bootbox.dialog({
-                    message: $("<form class='form'><label>Change event name</label></form><input id='new-event-title' class='form-control' type='text' value='" + calEvent.title + "' /> "),
-                    buttons: {
-                        "delete": {
-                            label: "<i class='fa fa-trash-o'></i> Delete Event",
-                            className: "pull-left",
-                            callback: function() {
-                                return cal.fullCalendar("removeEvents", function(ev) {
-                                    return ev._id === calEvent._id;
-                                });
-                            }
-                        },
-                        success: {
-                            label: "<i class='fa fa-floppy-o'></i> Save",
-                            className: "btn-success",
-                            callback: function() {
-                                calEvent.title = $("#new-event-title").val();
-                                return cal.fullCalendar('updateEvent', calEvent);
-                            }
-                        }
-                    }
+                    message: $("<form class='form'><label>Detail Acara</label></form><input id='new-event-title' class='form-control' type='text' value='" + calEvent.title + "' /> "),
                 });
             },
             drop: function(date, allDay) {
@@ -278,57 +260,10 @@
                     return $(this).remove();
                 }
             },
-            events: [
-                {
-                    id: "event1",
-                    title: "All Day Event",
-                    start: moment().startOf('month').format('YYYY-MM-DD'),
-                    className: 'event-orange'
-                }, {
-                    id: "event2",
-                    title: "Long Event",
-                    start: moment().subtract(5, 'day').format('YYYY-MM-DD'),
-                    end: moment().subtract(1, 'day').format('YYYY-MM-DD'),
-                    className: "event-red"
-                }, {
-                    id: 999,
-                    id: "event3",
-                    title: "Repeating Event",
-                    start: moment().subtract(3, 'day').format('YYYY-MM-DD HH:mm'),
-                    allDay: false,
-                    className: "event-blue"
-                }, {
-                    id: 999,
-                    id: "event3",
-                    title: "Repeating Event",
-                    start: moment().add(4, 'day').format('YYYY-MM-DD HH:mm'),
-                    allDay: false,
-                    className: "event-green"
-                }, {
-                    id: "event4",
-                    title: "Meeting",
-                    start: moment().startOf('day').add(10, 'hours').add(30, 'minute').format('YYYY-MM-DD HH:mm'),
-                    allDay: false,
-                    className: "event-orange"
-                }, {
-                    id: "event5",
-                    title: "Lunch",
-                    start: moment().startOf('day').add(12, 'hours').add(0, 'minute').format('YYYY-MM-DD HH:mm'),
-                    end: moment().startOf('day').add(14, 'hours').add(0, 'minute').format('YYYY-MM-DD HH:mm'),
-                    allDay: false,
-                    className: "event-red"
-                }, {
-                    id: "event6",
-                    title: "Birthday Party",
-                    start: moment().startOf('day').add(1, 'day').add(19, 'hours').add(0, 'minute').format('YYYY-MM-DD HH:mm'),
-                    end: moment().startOf('day').add(1, 'day').add(22, 'hours').add(30, 'minute').format('YYYY-MM-DD HH:mm'),
-                    allDay: false,
-                    className: "event-purple"
-                }
-            ]
+            events: jadwalGedung1
         });
 
-        var data = {!!json_encode($data)!!}
+        var jadwalGedung2 = {!!json_encode($jadwalGedung2)!!}
         cal2 = $(".full-calendar-demo2").fullCalendar({
             header: {
                 center: "title",
@@ -365,25 +300,6 @@
             eventClick: function(calEvent, jsEvent, view) {
                 return bootbox.dialog({
                     message: $("<form class='form'><label>Change event name</label></form><input id='new-event-title' class='form-control' type='text' value='" + calEvent.title + "' /> "),
-                    buttons: {
-                        "delete": {
-                            label: "<i class='fa fa-trash-o'></i> Delete Event",
-                            className: "pull-left",
-                            callback: function() {
-                                return cal2.fullCalendar("removeEvents", function(ev) {
-                                    return ev._id === calEvent._id;
-                                });
-                            }
-                        },
-                        success: {
-                            label: "<i class='fa fa-floppy-o'></i> Save",
-                            className: "btn-success",
-                            callback: function() {
-                                calEvent.title = $("#new-event-title").val();
-                                return cal2.fullCalendar('updateEvent', calEvent);
-                            }
-                        }
-                    }
                 });
             },
             drop: function(date, allDay) {
@@ -403,7 +319,7 @@
                     return $(this).remove();
                 }
             },
-            events: data 
+            events: jadwalGedung2 
         });
     }).call(this);
 </script>

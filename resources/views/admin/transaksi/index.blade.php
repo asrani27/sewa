@@ -67,14 +67,24 @@
                                         </td>
                                         <td>
                                             
+                                            @if($item->status == 0)
                                             <div class='text-right'>
-                                                <a class='btn btn-success btn-xs' href='/data/slideshow/edit/{{$item->id}}'>
+                                                <a class='btn btn-success btn-xs' href='/data/transaksi/setujui/{{$item->id}}'>
                                                     Setujui
                                                 </a>
-                                                <a class='btn btn-danger btn-xs' href='/data/slideshow/edit/{{$item->id}}'>
+                                                <a class='btn btn-danger btn-xs' href='/data/slideshow/tolak/{{$item->id}}'>
                                                     Tolak
                                                 </a>
                                             </div>
+                                            @elseif($item->status == 1)
+                                            <div class='text-right'>
+                                                <a class='btn btn-danger btn-xs' href='/data/slideshow/tolak/{{$item->id}}'>
+                                                    Batalkan
+                                                </a>
+                                            </div>
+                                            @else
+                                            
+                                            @endif
                                         </td>
                                     </tr>
                                     @endforeach

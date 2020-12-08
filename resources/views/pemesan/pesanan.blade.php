@@ -6,7 +6,7 @@
 <div class='col-xs-12'>
     <div class='page-header page-header-with-buttons'>
         <h1 class='pull-left'>
-            <i class='fa fa-photo'></i>
+            <i class='fa fa-shopping-cart'></i>
             <span>Pesanan Saya</span>
         </h1>
         
@@ -68,7 +68,8 @@
                                         </td>
 
                                         <td>
-                                            <a href="" class="btn btn-sm btn-success">Upload Bukti Transfer</a>
+                                            <a href="" class="btn btn-sm btn-success">Upload DP</a> | 
+                                            <a href="" class="btn btn-sm btn-info">Upload Pelunasan</a>
                                         </td>
                                     </tr>
                                     @endforeach

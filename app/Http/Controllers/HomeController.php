@@ -11,16 +11,11 @@ class HomeController extends Controller
     public function index()
     {
         if (Auth::user()->hasRole('admin')) {
-            $data = [
-                ['id' => 'wedding', 'title' => 'wedding', 'start' => '2020-12-03', 'className' => 'event-orange'],
-                ['id' => 'kawin', 'title' => 'kelulusan', 'start' => '2020-12-04', 'className' => 'event-green']
-            ];
-            return view('admin.dashboard.index', compact('data'));
-        } else {
+
             $jadwalGedung1 = Sewa::where('gedung', '1')->where('status', '1')->get()->map(function ($item) {
                 $data = array();
                 $data['id'] = $item->id;
-                $data['title'] = $item->nama_acara;
+                $data['title'] = $item->nama_acara . ', Dipesan Oleh:' . $item->nama;
                 $data['start'] = $item->tanggal;
                 $data['className'] = 'event-green';
                 return $data;
@@ -29,7 +24,26 @@ class HomeController extends Controller
             $jadwalGedung2 = Sewa::where('gedung', '2')->where('status', '1')->get()->map(function ($item) {
                 $data = array();
                 $data['id'] = $item->id;
-                $data['title'] = $item->nama_acara;
+                $data['title'] = $item->nama_acara . ', Dipesan Oleh:' . $item->nama;
+                $data['start'] = $item->tanggal;
+                $data['className'] = 'event-green';
+                return $data;
+            })->toArray();
+            return view('admin.dashboard.index', compact('jadwalGedung1', 'jadwalGedung2'));
+        } else {
+            $jadwalGedung1 = Sewa::where('gedung', '1')->where('status', '1')->get()->map(function ($item) {
+                $data = array();
+                $data['id'] = $item->id;
+                $data['title'] = $item->nama_acara . ', Dipesan Oleh:' . $item->nama;
+                $data['start'] = $item->tanggal;
+                $data['className'] = 'event-green';
+                return $data;
+            })->toArray();
+
+            $jadwalGedung2 = Sewa::where('gedung', '2')->where('status', '1')->get()->map(function ($item) {
+                $data = array();
+                $data['id'] = $item->id;
+                $data['title'] = $item->nama_acara . ', Dipesan Oleh:' . $item->nama;
                 $data['start'] = $item->tanggal;
                 $data['className'] = 'event-green';
                 return $data;
@@ -41,6 +55,20 @@ class HomeController extends Controller
 
     public function gantipass()
     {
-        return view('admin.dashboard.gantipass');
+        $data = Auth::user();
+        return view('admin.dashboard.gantipass', compact('data'));
+    }
+
+    public function updatepass(Request $req)
+    {
+        if ($req->password != $req->password2) {
+            toastr()->error('Password Tidak Sesuai');
+        } else {
+            $u = Auth::user();
+            $u->password = bcrypt($req->password);
+            $u->save();
+            toastr()->success('Password Berhasil Di Update');
+        }
+        return back();
     }
 }

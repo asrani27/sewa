@@ -14,6 +14,7 @@ Route::post('/register', 'LoginController@storeRegister');
 
 Route::get('/home', 'HomeController@index');
 Route::get('/ganti-password', 'HomeController@gantipass');
+Route::post('/data/ganti-password', 'HomeController@updatepass');
 Route::get('/logout', 'LoginController@logout');
 
 Route::get('/data/slideshow', 'SlideController@index');
@@ -37,6 +38,8 @@ Route::get('/data/harga', 'HargaController@index');
 Route::get('/data/harga/edit/{id}', 'HargaController@edit');
 Route::post('/data/harga/edit/{id}', 'HargaController@update');
 Route::get('/data/transaksi', 'TransaksiController@index');
+Route::get('/data/transaksi/setujui/{id}', 'TransaksiController@setujui');
+Route::get('/data/transaksi/tolak/{id}', 'TransaksiController@tolak');
 
 Route::get('/data/kontak', 'KontakController@index');
 Route::post('/data/kontak/edit/{id}', 'KontakController@update');

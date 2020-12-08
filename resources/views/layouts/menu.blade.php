@@ -65,7 +65,7 @@
     
     <li class='{{ Request::is('pesanan-saya') ? 'active' : '' }}'>
         <a href='/pesanan-saya'>
-            <i class='fa fa-tachometer'></i>
+            <i class='fa fa-shopping-cart'></i>
             <span>Pesanan Saya</span>
         </a>
     </li>
