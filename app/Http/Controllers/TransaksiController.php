@@ -30,4 +30,13 @@ class TransaksiController extends Controller
         toastr()->success('Pesanan Telah Ditolak');
         return back();
     }
+
+    public function proses($id)
+    {
+        $u = Sewa::find($id);
+        $u->status = 0;
+        $u->save();
+        toastr()->success('Pesanan Telah Di Proses Kembali');
+        return back();
+    }
 }

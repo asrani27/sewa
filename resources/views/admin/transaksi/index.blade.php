@@ -41,6 +41,8 @@
                                     <th>Gedung</th>
                                     <th>Harga</th>
                                     <th>Status</th>
+                                    <th>DP</th>
+                                    <th>Pelunasan</th>
                                     <th></th>
                                 </tr>
                                 </thead>
@@ -66,23 +68,42 @@
                                             @endif
                                         </td>
                                         <td>
+                                            @if ($item->foto_dp != null)
+                                                <a href="/storage/{{$item->foto_dp}}" target="_blank"><i class='fa fa-eye'></i></a> 
+                                            @else
+                                                -
+                                            @endif
+                                        </td>
+                                        <td>
+                                            @if ($item->foto_sisa != null)
+                                            <a href="/storage/{{$item->foto_sisa}}" target="_blank"><i class='fa fa-eye'></i></a> 
+                                            @else
+                                                -
+                                            @endif
+                                        </td>
+                                        <td>
                                             
                                             @if($item->status == 0)
                                             <div class='text-right'>
-                                                <a class='btn btn-success btn-xs' href='/data/transaksi/setujui/{{$item->id}}'>
+                                                <a class='btn btn-success btn-xs' href='/data/transaksi/setujui/{{$item->id}}' onclick="return confirm('Yakin Ingin menyetujui pesanan ini?');">
                                                     Setujui
-                                                </a>
-                                                <a class='btn btn-danger btn-xs' href='/data/slideshow/tolak/{{$item->id}}'>
+                                                </a> - 
+                                                <a class='btn btn-danger btn-xs' href='/data/transaksi/tolak/{{$item->id}}' onclick="return confirm('Yakin Ingin Tolak Pesanan ini?');">
                                                     Tolak
                                                 </a>
                                             </div>
                                             @elseif($item->status == 1)
                                             <div class='text-right'>
-                                                <a class='btn btn-danger btn-xs' href='/data/slideshow/tolak/{{$item->id}}'>
-                                                    Batalkan
+                                                <a class='btn btn-danger btn-xs' href='/data/transaksi/tolak/{{$item->id}}' onclick="return confirm('Yakin ingin membatalkan pesanan Ini?');">
+                                                    Tolak Pesanan
                                                 </a>
                                             </div>
                                             @else
+                                            <div class='text-right'>
+                                                <a class='btn btn-success btn-xs' href='/data/transaksi/proses/{{$item->id}}' onclick="return confirm('Yakin ingin memproses pesanan Ini?');">
+                                                    Ubah Status Jadi Di Proses
+                                                </a>
+                                            </div>
                                             
                                             @endif
                                         </td>
