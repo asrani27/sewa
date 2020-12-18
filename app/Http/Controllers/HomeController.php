@@ -16,17 +16,7 @@ class HomeController extends Controller
     }
     public function index()
     {
-        $angka = 1;
 
-        if ($angka > 0) {
-            $hasil = 'Lebih Dari Nol';
-        } else {
-            $hasil = 'Kurang Dari Nol';
-        }
-
-        $hasil2 = $angka > 0 ? 'Lebih Dari Nol' : 'Kurang Dari Nol';
-
-        dd($hasil, $hasil2);
 
         if (Auth::user()->hasRole('admin')) {
 
