@@ -6,8 +6,8 @@
 <div class='col-xs-12'>
     <div class='page-header page-header-with-buttons'>
         <h1 class='pull-left'>
-            <i class='fa fa-photo'></i>
-            <span>Pesanan Saya</span>
+            <i class='fa fa-money'></i>
+            <span>Transaksi Sewa Gedung</span>
         </h1>
         
         {{-- <div class='pull-right'>

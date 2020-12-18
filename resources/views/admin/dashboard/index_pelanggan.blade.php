@@ -25,7 +25,7 @@
                     <form action="#" accept-charset="UTF-8" class="form form-horizontal" style="margin-bottom: 0;" method="post">
                         <div class="form-group">
                             <div class="col-md-12">
-                                <a class="btn btn-primary" data-toggle='modal' href='#modal-example2'>Pesan Gedung Raya 1</a>
+                                <a class="btn btn-primary pesan-gedung1" data-id="{{Auth::user()->id}}">Pesan Gedung Raya 1</a>
                             </div>
                         </div>
                     </form>
@@ -93,10 +93,19 @@
             <form action="/pesan/gedungraya1" accept-charset="UTF-8" class="form" style="margin-bottom: 0;" method="post">
                 @csrf
             <div class='modal-body'>
+                    {{-- <div class='form-group'>
+                        <label for='inputText1'>select option</label>
+                        <select name="select_id" id="select_id" class="form-control">
+                            @foreach ($user as $item)
+                                <option value="{{$item->id}}">{{$item->name}}</option>
+                            @endforeach
+                        </select>
+                    </div> --}}
                     <div class='form-group'>
                         <label for='inputText1'>Nama Pemesan</label>
                         <input class='form-control' id='inputText1' placeholder='Nama Pemesan' name="nama" type='text' required>
-                    </div><div class='form-group'>
+                    </div>
+                    <div class='form-group'>
                         <label for='inputText1'>NIK (Boleh Kosong)</label>
                         <input class='form-control' id='inputText1' placeholder='NIK' name="nik" type='text'>
                     </div>
@@ -162,12 +171,32 @@
 </div>
 @endsection
 @push('js')
-    
+<script src="https://unpkg.com/axios/dist/axios.min.js"></script>
 <script src="/admin/assets/javascripts/plugins/common/moment.min.js" type="text/javascript"></script>
 <script src="/admin/assets/javascripts/plugins/bootstrap_daterangepicker/bootstrap-daterangepicker.js" type="text/javascript"></script>
 <script src="/admin/assets/javascripts/plugins/bootbox/bootbox.min.js" type="text/javascript"></script>
 <script src="/admin/assets/javascripts/plugins/fullcalendar/fullcalendar.min.js" type="text/javascript"></script>
 <script>
+$(".pesan-gedung1").click(function() {
+    //Pertama Dapatkan ID
+    var userid = $(this).data('id');
+    //Kedua Remove Select Option
+    $("#select_id option").remove();
+
+    //Ketiga Get Select option
+    axios.get('/user/json')
+    .then(function (response) {
+        resp = response.data;
+        $.each(resp, function(key, value){
+            $('#select_id').append('<option value="'+value.id+'" '+(value.id === userid ? 'selected' : '')+'>'+value.name+'</option>')
+        })
+    })
+    .catch(function (error) {
+        console.log(error);
+    });
+
+    $('#modal-example2').modal('show');
+});
     (function() {
         var cal, calendarDate, d, m, y;
 
@@ -266,41 +295,12 @@
             droppable: true,
             editable: true,
             selectable: true,
-            select: function(start, end, allDay) {
-                return bootbox.prompt("Event title", function(title) {
-                    if (title !== null) {
-                        cal2.fullCalendar("renderEvent", {
-                            title: title,
-                            start: start,
-                            end: end,
-                            allDay: allDay
-                        }, true);
-                        return cal2.fullCalendar('unselect');
-                    }
-                });
-            },
+            
             eventClick: function(calEvent, jsEvent, view) {
                 return bootbox.dialog({
                     message: $("<form class='form'><label>Change event name</label></form><input id='new-event-title' class='form-control' type='text' value='" + calEvent.title + "' /> "),
-                    buttons: {
-                        "delete": {
-                            label: "<i class='fa fa-trash-o'></i> Delete Event",
-                            className: "pull-left",
-                            callback: function() {
-                                return cal2.fullCalendar("removeEvents", function(ev) {
-                                    return ev._id === calEvent._id;
-                                });
-                            }
-                        },
-                        success: {
-                            label: "<i class='fa fa-floppy-o'></i> Save",
-                            className: "btn-success",
-                            callback: function() {
-                                calEvent.title = $("#new-event-title").val();
-                                return cal2.fullCalendar('updateEvent', calEvent);
-                            }
-                        }
-                    }
+                   
+                   
                 });
             },
             drop: function(date, allDay) {

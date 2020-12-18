@@ -13,6 +13,7 @@ Route::get('/register', 'LoginController@register');
 Route::post('/register', 'LoginController@storeRegister');
 
 Route::get('/home', 'HomeController@index');
+Route::get('/user/json', 'HomeController@userJson');
 Route::get('/ganti-password', 'HomeController@gantipass');
 Route::post('/data/ganti-password', 'HomeController@updatepass');
 Route::get('/logout', 'LoginController@logout');

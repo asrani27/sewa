@@ -68,8 +68,8 @@
                                         </td>
 
                                         <td>
-                                            <a href="" class="btn btn-sm btn-success">Upload DP</a> | 
-                                            <a href="" class="btn btn-sm btn-info">Upload Pelunasan</a>
+                                            <a href="#" class="btn btn-sm btn-success upload-dp" data-id="{{$item->id}}">Upload DP</a> | 
+                                            <a href="#" class="btn btn-sm btn-info upload-lunas" data-id="{{$item->id}}">Upload Pelunasan</a>
                                         </td>
                                     </tr>
                                     @endforeach
@@ -82,10 +82,68 @@
         </div>
     </div>  
 </div>
+
+<div class='modal fade' id='modal-default' tabindex='-1'>
+    <div class='modal-dialog'>
+        <div class='modal-content'>
+            <div class='modal-header'>
+                <button aria-hidden='true' class='close' data-dismiss='modal' type='button'>×</button>
+                <h4 class='modal-title' id='myModalLabel'>Upload Bukti Transfer DP</h4>
+            </div>
+            <form action="/pesanan-saya/upload-dp" accept-charset="UTF-8" class="form" style="margin-bottom: 0;" method="post">
+                @csrf
+            <div class='modal-body'>
+                    <div class='form-group'>
+                        <label for='inputText1'>File Gambar</label>
+                        <input class='form-control' id='inputText1' name="file" type='file' required>
+                        <input class='form-control' name="idpesanan" id="idpesanan" type='hidden' readonly>
+                    </div>
+            </div>
+            <div class='modal-footer'>
+                <button class='btn btn-default' data-dismiss='modal' type='button'>Keluar</button>
+                <button class='btn btn-primary' type='submit'>Pesan</button>
+            </div>
+            </form>
+        </div>
+    </div>
+</div>
+
+<div class='modal fade' id='modal-default' tabindex='-1'>
+    <div class='modal-dialog'>
+        <div class='modal-content'>
+            <div class='modal-header'>
+                <button aria-hidden='true' class='close' data-dismiss='modal' type='button'>×</button>
+                <h4 class='modal-title' id='myModalLabel'>Upload Bukti Pelunasan</h4>
+            </div>
+            <form action="/pesanan-saya/upload-pelunasan" accept-charset="UTF-8" class="form" style="margin-bottom: 0;" method="post">
+                @csrf
+            <div class='modal-body'>
+                    <div class='form-group'>
+                        <label for='inputText1'>File Gambar</label>
+                        <input class='form-control' id='inputText1' name="file" type='file' required>
+                        <input class='form-control' name="idpesanan" id="idpesanan" type='hidden' readonly>
+                    </div>
+            </div>
+            <div class='modal-footer'>
+                <button class='btn btn-default' data-dismiss='modal' type='button'>Keluar</button>
+                <button class='btn btn-primary' type='submit'>Pesan</button>
+            </div>
+            </form>
+        </div>
+    </div>
+</div>
 @endsection
 @push('js')
 <script src="/admin/assets/javascripts/jquery/jquery.ui.touch-punch.min.js" type="text/javascript"></script>
 <script src="/admin/assets/javascripts/plugins/modernizr/modernizr.min.js" type="text/javascript"></script>
 <script src="/admin/assets/javascripts/plugins/retina/retina.js" type="text/javascript"></script>
 <script src="/admin/assets/javascripts/plugins/datatables/datatables.min.js" type="text/javascript"></script>
+<script>
+        $(document).on('click', '.upload-dp', function() {
+        idpesanan = $(this).data('id');
+        document.getElementById("idpesanan").value = idpesanan;
+        $('#modal-default').modal('show');
+    });
+
+</script>
 @endpush

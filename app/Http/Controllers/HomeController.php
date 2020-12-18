@@ -3,13 +3,31 @@
 namespace App\Http\Controllers;
 
 use App\Sewa;
+use App\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 
 class HomeController extends Controller
 {
+    public function userJson()
+    {
+        $data = User::get();
+        return json_encode($data, true);
+    }
     public function index()
     {
+        $angka = 1;
+
+        if ($angka > 0) {
+            $hasil = 'Lebih Dari Nol';
+        } else {
+            $hasil = 'Kurang Dari Nol';
+        }
+
+        $hasil2 = $angka > 0 ? 'Lebih Dari Nol' : 'Kurang Dari Nol';
+
+        dd($hasil, $hasil2);
+
         if (Auth::user()->hasRole('admin')) {
 
             $jadwalGedung1 = Sewa::where('gedung', '1')->where('status', '1')->get()->map(function ($item) {
@@ -48,8 +66,8 @@ class HomeController extends Controller
                 $data['className'] = 'event-green';
                 return $data;
             })->toArray();
-
-            return view('admin.dashboard.index_pelanggan', compact('jadwalGedung1', 'jadwalGedung2'));
+            $user = User::all();
+            return view('admin.dashboard.index_pelanggan', compact('jadwalGedung1', 'jadwalGedung2', 'user'));
         }
     }
 

@@ -20,18 +20,8 @@
     </div>
     <div class='row box box-transparent'>
         <div class='col-xs-4 col-sm-2'>
-            <div class='box-quick-link blue-background'>
-                <a href='#'>
-                    <div class='header'>
-                        <div class='fa fa-comments'></div>
-                    </div>
-                    <div class='content'>Layanan</div>
-                </a>
-            </div>
-        </div>
-        <div class='col-xs-4 col-sm-2'>
             <div class='box-quick-link green-background'>
-                <a href='#'>
+                <a href='/data/tentang-kami'>
                     <div class='header'>
                         <div class='fa fa-star'></div>
                     </div>
@@ -41,7 +31,7 @@
         </div>
         <div class='col-xs-4 col-sm-2'>
             <div class='box-quick-link orange-background'>
-                <a href='#'>
+                <a href='/data/galery'>
                     <div class='header'>
                         <div class='fa fa-magic'></div>
                     </div>
@@ -51,7 +41,7 @@
         </div>
         <div class='col-xs-4 col-sm-2'>
             <div class='box-quick-link purple-background'>
-                <a href='#'>
+                <a href='/data/kontak'>
                     <div class='header'>
                         <div class='fa fa-eye'></div>
                     </div>
@@ -61,7 +51,7 @@
         </div>
         <div class='col-xs-4 col-sm-2'>
             <div class='box-quick-link red-background'>
-                <a href='orders.html'>
+                <a href='/data/transaksi'>
                     <div class='header'>
                         <div class='fa fa-inbox'></div>
                     </div>
@@ -71,7 +61,7 @@
         </div>
         <div class='col-xs-4 col-sm-2'>
             <div class='box-quick-link muted-background'>
-                <a href='#'>
+                <a href='/data/slideshow'>
                     <div class='header'>
                         <div class='fa fa-refresh'></div>
                     </div>
@@ -225,19 +215,7 @@
             droppable: true,
             editable: true,
             selectable: true,
-            select: function(start, end, allDay) {
-                return bootbox.prompt("Event title", function(title) {
-                    if (title !== null) {
-                        cal.fullCalendar("renderEvent", {
-                            title: title,
-                            start: start,
-                            end: end,
-                            allDay: allDay
-                        }, true);
-                        return cal.fullCalendar('unselect');
-                    }
-                });
-            },
+            
             eventClick: function(calEvent, jsEvent, view) {
                 return bootbox.dialog({
                     message: $("<form class='form'><label>Detail Acara</label></form><input id='new-event-title' class='form-control' type='text' value='" + calEvent.title + "' /> "),
@@ -284,19 +262,7 @@
             droppable: true,
             editable: true,
             selectable: true,
-            select: function(start, end, allDay) {
-                return bootbox.prompt("Event title", function(title) {
-                    if (title !== null) {
-                        cal2.fullCalendar("renderEvent", {
-                            title: title,
-                            start: start,
-                            end: end,
-                            allDay: allDay
-                        }, true);
-                        return cal2.fullCalendar('unselect');
-                    }
-                });
-            },
+            
             eventClick: function(calEvent, jsEvent, view) {
                 return bootbox.dialog({
                     message: $("<form class='form'><label>Change event name</label></form><input id='new-event-title' class='form-control' type='text' value='" + calEvent.title + "' /> "),
