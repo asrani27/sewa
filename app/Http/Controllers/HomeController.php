@@ -16,8 +16,6 @@ class HomeController extends Controller
     }
     public function index()
     {
-
-
         if (Auth::user()->hasRole('admin')) {
 
             $jadwalGedung1 = Sewa::where('gedung', '1')->where('status', '1')->get()->map(function ($item) {

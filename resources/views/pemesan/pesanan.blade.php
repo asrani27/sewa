@@ -66,10 +66,18 @@
                                             Di Tolak
                                             @endif
                                         </td>
-
-                                        <td>
-                                            <a href="#" class="btn btn-sm btn-success upload-dp" data-id="{{$item->id}}">Upload DP</a> | 
+                                        <td class="text-center">
+                                            @if ($item->foto_dp != null)
+                                            <a href="/storage/{{$item->foto_dp}}" target="_blank"><img src="/storage/{{$item->foto_dp}}" width="100" height="100"></a> <br/>
+                                            @endif
+                                            <a href="#" class="btn btn-sm btn-success upload-dp" data-id="{{$item->id}}">Upload DP</a>
+                                        </td>
+                                        <td class="text-center">
+                                            @if ($item->foto_sisa != null)
+                                            <a href="/storage/{{$item->foto_sisa}}" target="_blank"><img src="/storage/{{$item->foto_sisa}}" width="100" height="100"></a> <br/>
+                                            @endif
                                             <a href="#" class="btn btn-sm btn-info upload-lunas" data-id="{{$item->id}}">Upload Pelunasan</a>
+
                                         </td>
                                     </tr>
                                     @endforeach
@@ -90,7 +98,7 @@
                 <button aria-hidden='true' class='close' data-dismiss='modal' type='button'>×</button>
                 <h4 class='modal-title' id='myModalLabel'>Upload Bukti Transfer DP</h4>
             </div>
-            <form action="/pesanan-saya/upload-dp" accept-charset="UTF-8" class="form" style="margin-bottom: 0;" method="post">
+            <form action="/pesanan-saya/upload-dp" accept-charset="UTF-8" class="form" style="margin-bottom: 0;" method="post" enctype="multipart/form-data">
                 @csrf
             <div class='modal-body'>
                     <div class='form-group'>
@@ -101,32 +109,32 @@
             </div>
             <div class='modal-footer'>
                 <button class='btn btn-default' data-dismiss='modal' type='button'>Keluar</button>
-                <button class='btn btn-primary' type='submit'>Pesan</button>
+                <button class='btn btn-primary' type='submit'>Kirim</button>
             </div>
             </form>
         </div>
     </div>
 </div>
 
-<div class='modal fade' id='modal-default' tabindex='-1'>
+<div class='modal fade' id='modal-default2' tabindex='-1'>
     <div class='modal-dialog'>
         <div class='modal-content'>
             <div class='modal-header'>
                 <button aria-hidden='true' class='close' data-dismiss='modal' type='button'>×</button>
                 <h4 class='modal-title' id='myModalLabel'>Upload Bukti Pelunasan</h4>
             </div>
-            <form action="/pesanan-saya/upload-pelunasan" accept-charset="UTF-8" class="form" style="margin-bottom: 0;" method="post">
+            <form action="/pesanan-saya/upload-pelunasan" accept-charset="UTF-8" class="form" style="margin-bottom: 0;" method="post" enctype="multipart/form-data">
                 @csrf
             <div class='modal-body'>
                     <div class='form-group'>
                         <label for='inputText1'>File Gambar</label>
                         <input class='form-control' id='inputText1' name="file" type='file' required>
-                        <input class='form-control' name="idpesanan" id="idpesanan" type='hidden' readonly>
+                        <input class='form-control' name="idpelunasan" id="idpelunasan" type='hidden' readonly>
                     </div>
             </div>
             <div class='modal-footer'>
                 <button class='btn btn-default' data-dismiss='modal' type='button'>Keluar</button>
-                <button class='btn btn-primary' type='submit'>Pesan</button>
+                <button class='btn btn-primary' type='submit'>Kirim</button>
             </div>
             </form>
         </div>
@@ -139,10 +147,16 @@
 <script src="/admin/assets/javascripts/plugins/retina/retina.js" type="text/javascript"></script>
 <script src="/admin/assets/javascripts/plugins/datatables/datatables.min.js" type="text/javascript"></script>
 <script>
-        $(document).on('click', '.upload-dp', function() {
+    $(document).on('click', '.upload-dp', function() {
         idpesanan = $(this).data('id');
         document.getElementById("idpesanan").value = idpesanan;
         $('#modal-default').modal('show');
+    });
+    
+    $(document).on('click', '.upload-lunas', function() {
+        idpelunasan = $(this).data('id');
+        document.getElementById("idpelunasan").value = idpelunasan;
+        $('#modal-default2').modal('show');
     });
 
 </script>
