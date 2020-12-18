@@ -61,6 +61,13 @@
             <span>Transaksi</span>
         </a>
     </li>
+    
+    <li class='{{ Request::is('laporan/transaksi') ? 'active' : '' }}'>
+        <a href='/laporan/transaksi'>
+            <i class='fa fa-table'></i>
+            <span>Lap. keuangan</span>
+        </a>
+    </li>
     @else
     
     <li class='{{ Request::is('pesanan-saya') ? 'active' : '' }}'>

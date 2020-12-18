@@ -52,3 +52,5 @@ Route::post('/pesan/gedungraya2', 'SewaController@gedungRaya2');
 Route::get('/pesanan-saya', 'SewaController@pesananSaya');
 Route::post('/pesanan-saya/upload-dp', 'SewaController@uploadDP');
 Route::post('/pesanan-saya/upload-pelunasan', 'SewaController@uploadLunas');
+
+Route::get('/laporan/transaksi', 'LaporanController@index');
