@@ -54,3 +54,11 @@ Route::post('/pesanan-saya/upload-dp', 'SewaController@uploadDP');
 Route::post('/pesanan-saya/upload-pelunasan', 'SewaController@uploadLunas');
 
 Route::get('/laporan/transaksi', 'LaporanController@index');
+Route::get('/laporan/transaksi/gd1/tanggal', 'LaporanController@gd1Tanggal');
+Route::get('/laporan/transaksi/gd1/bulan', 'LaporanController@gd1bulan');
+Route::get('/laporan/transaksi/gd1/tahun', 'LaporanController@gd1tahun');
+Route::get('/laporan/transaksi/gd2/tanggal', 'LaporanController@gd2Tanggal');
+Route::get('/laporan/transaksi/gd2/bulan', 'LaporanController@gd2bulan');
+Route::get('/laporan/transaksi/gd2/tahun', 'LaporanController@gd2tahun');
+
+
