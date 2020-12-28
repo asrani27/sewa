@@ -105,66 +105,94 @@
                 </div>
             </div>
         </div>
-        {{-- <div class="col-sm-6">      
-            <div class='row'>
-                <div class='col-sm-12 col-md-12'>
-                    <div class='box'>
-                        <div class='box-header'>
-                            <div class='title'>
-                                <div class='fa fa-inbox'></div>
-                                Pesanan Gedung
-                            </div>
-                            <div class='actions'>
-                                <a class="btn box-remove btn-xs btn-link" href="#"><i class='fa fa-times'></i>
-                                </a>
-                                <a class="btn box-collapse btn-xs btn-link" href="#"><i></i>
-                                </a>
-                            </div>
-                        </div>
-                        <div class='row'>
-                            <div class='col-sm-6'>
-                                <div class='box-content box-statistic'>
-                                    <h3 class='title text-error'>191</h3>
-                                    <small>Baru</small>
-                                    <div class='text-error fa fa-inbox align-right'></div>
-                                </div>
-                                <div class='box-content box-statistic'>
-                                    <h3 class='title text-warning'>311</h3>
-                                    <small>Proses</small>
-                                    <div class='text-warning fa fa-check-square-o align-right'></div>
-                                </div>
-                                <div class='box-content box-statistic'>
-                                    <h3 class='title text-info'>3</h3>
-                                    <small>Pending</small>
-                                    <div class='text-info fa fa-clock-o align-right'></div>
-                                </div>
-                            </div>
-                            <div class='col-sm-6'>
-                                <div class='box-content box-statistic'>
-                                    <h3 class='title text-success'>981</h3>
-                                    <small>Selesai</small>
-                                    <div class='text-success fa fa-flag align-right'></div>
-                                </div>
-                                <div class='box-content box-statistic'>
-                                    <h3 class='title text-muted'>0</h3>
-                                    <small>Batal</small>
-                                    <div class='text-muted fa fa-times align-right'></div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div> --}}
     </div>
+</div>
+{{-- Modal Tambah --}}
+<div class="modal fade" id="modal-default-gedung-raya1">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h4 class="modal-title">Pemesanan Gedung Raya 1</h4>
+        </div>
+        <form method="POST" action="/pesan/gedungraya1/admin">
+            @csrf
+            <div class="modal-body">
+              <div class="form-group row">
+                <label for="inputEmail3" class="col-sm-4 col-form-label">Nama Pemesan</label>
+                <div class="col-sm-6">
+                <input type="text" class="form-control" name="nama" required>
+                </div>
+              </div>
+              <div class="form-group row">
+                <label for="inputEmail3" class="col-sm-4 col-form-label">Tanggal Pemesanan</label>
+                <div class="col-sm-6">
+                <input type="text" class="form-control" name="tanggal" id="tanggal_gd1" readonly>
+                </div>
+              </div>
+              <div class="form-group row">
+                <label for="inputEmail3" class="col-sm-4 col-form-label">Gedung</label>
+                <div class="col-sm-6">
+                <input type="text" class="form-control" name="gedung" value="Gedung Raya 1" readonly>
+                </div>
+              </div>
+            </div>
+            <div class="modal-footer justify-content-between">
+              <button type="button" class="btn btn-default" data-dismiss="modal">Keluar</button>
+              <button type="submit" class="btn btn-primary">Simpan</button>
+            </div>
+        </form>
+      </div>
+      <!-- /.modal-content -->
+    </div>
+    <!-- /.modal-dialog -->
+</div>
+
+{{-- Modal Tambah --}}
+<div class="modal fade" id="modal-default-gedung-raya2">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h4 class="modal-title">Pemesanan Gedung Raya 2</h4>
+        </div>
+        <form method="POST" action="/pesan/gedungraya2/admin">
+            @csrf
+            <div class="modal-body">
+              <div class="form-group row">
+                <label for="inputEmail3" class="col-sm-4 col-form-label">Nama Pemesan</label>
+                <div class="col-sm-6">
+                <input type="text" class="form-control" name="nama" required>
+                </div>
+              </div>
+              <div class="form-group row">
+                <label for="inputEmail3" class="col-sm-4 col-form-label">Tanggal Pemesanan</label>
+                <div class="col-sm-6">
+                <input type="text" class="form-control" name="tanggal" id="tanggal_gd2" readonly>
+                </div>
+              </div>
+              <div class="form-group row">
+                <label for="inputEmail3" class="col-sm-4 col-form-label">Gedung</label>
+                <div class="col-sm-6">
+                <input type="text" class="form-control" name="gedung" value="Gedung Raya 2" readonly>
+                </div>
+              </div>
+            </div>
+            <div class="modal-footer justify-content-between">
+              <button type="button" class="btn btn-default" data-dismiss="modal">Keluar</button>
+              <button type="submit" class="btn btn-primary">Simpan</button>
+            </div>
+        </form>
+      </div>
+      <!-- /.modal-content -->
+    </div>
+    <!-- /.modal-dialog -->
 </div>
 @endsection
 @push('js')
     
 <script src="/admin/assets/javascripts/plugins/common/moment.min.js" type="text/javascript"></script>
 <script src="/admin/assets/javascripts/plugins/bootstrap_daterangepicker/bootstrap-daterangepicker.js" type="text/javascript"></script>
-<script src="/admin/assets/javascripts/plugins/bootbox/bootbox.min.js" type="text/javascript"></script>
 <script src="/admin/assets/javascripts/plugins/fullcalendar/fullcalendar.min.js" type="text/javascript"></script>
+<script src="/admin/assets/javascripts/plugins/bootbox/bootbox.min.js" type="text/javascript"></script>
 <script>
     (function() {
         var cal, calendarDate, d, m, y;
@@ -215,6 +243,11 @@
             droppable: true,
             editable: true,
             selectable: true,
+            select: function(start, end, allDay) {
+                var tanggal = moment(start).format();
+                document.getElementById("tanggal_gd1").value = tanggal;
+                $('#modal-default-gedung-raya1').modal('show');
+            },
             
             eventClick: function(calEvent, jsEvent, view) {
                 return bootbox.dialog({
@@ -262,6 +295,11 @@
             droppable: true,
             editable: true,
             selectable: true,
+            select: function(start, end, allDay) {
+                var tanggal = moment(start).format();
+                document.getElementById("tanggal_gd2").value = tanggal;
+                $('#modal-default-gedung-raya2').modal('show');
+            },
             
             eventClick: function(calEvent, jsEvent, view) {
                 return bootbox.dialog({

@@ -22,6 +22,13 @@ class TransaksiController extends Controller
         return back();
     }
 
+    public function hapus($id)
+    {
+        $u = Sewa::find($id)->delete();
+        toastr()->success('Pesanan Telah Dihapus');
+        return back();
+    }
+
     public function tolak($id)
     {
         $u = Sewa::find($id);

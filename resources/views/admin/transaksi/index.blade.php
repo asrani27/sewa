@@ -106,6 +106,9 @@
                                             </div>
                                             
                                             @endif
+                                            <a class='btn btn-success btn-xs' href='/data/transaksi/hapus/{{$item->id}}' onclick="return confirm('Yakin ingin menghapus pesanan Ini?');">
+                                                Hapus Transaksi
+                                            </a>
                                         </td>
                                     </tr>
                                     @endforeach

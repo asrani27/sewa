@@ -40,6 +40,7 @@ Route::get('/data/harga/edit/{id}', 'HargaController@edit');
 Route::post('/data/harga/edit/{id}', 'HargaController@update');
 Route::get('/data/transaksi', 'TransaksiController@index');
 Route::get('/data/transaksi/setujui/{id}', 'TransaksiController@setujui');
+Route::get('/data/transaksi/hapus/{id}', 'TransaksiController@hapus');
 Route::get('/data/transaksi/tolak/{id}', 'TransaksiController@tolak');
 Route::get('/data/transaksi/batal/{id}', 'TransaksiController@batal');
 Route::get('/data/transaksi/proses/{id}', 'TransaksiController@proses');
@@ -62,3 +63,5 @@ Route::get('/laporan/transaksi/gd2/bulan', 'LaporanController@gd2bulan');
 Route::get('/laporan/transaksi/gd2/tahun', 'LaporanController@gd2tahun');
 
 
+Route::post('/pesan/gedungraya1/admin', 'SewaController@gedungRaya1admin');
+Route::post('/pesan/gedungraya2/admin', 'SewaController@gedungRaya2admin');
