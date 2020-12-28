@@ -26,7 +26,7 @@ class SlideController extends Controller
 
         if ($req->hasFile('file')) {
             $validator = Validator::make($req->all(), [
-                'file' => 'mimes:jpeg,png,jpg,gif,svg|max:2048',
+                'file' => 'mimes:jpeg,png,jpg,gif,svg|max:4048',
             ]);
 
             if ($validator->fails()) {
@@ -61,7 +61,7 @@ class SlideController extends Controller
 
         if ($req->hasFile('file')) {
             $validator = Validator::make($req->all(), [
-                'file' => 'mimes:jpeg,png,jpg,gif,svg|max:2048',
+                'file' => 'mimes:jpeg,png,jpg,gif,svg|max:4048',
             ]);
 
             if ($validator->fails()) {
