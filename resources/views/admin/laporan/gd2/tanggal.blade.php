@@ -61,8 +61,15 @@
                                             @else
                                             Di Tolak
                                             @endif
+                                        </td> 
+                                        <td>
+                                            @currency($item->dp)
                                         </td>
                                         <td>
+                                            @currency($item->lunas)
+                                        </td>
+                                        
+                                        {{-- <td>
                                             @if ($item->foto_dp != null)
                                                 <a href="/storage/{{$item->foto_dp}}" target="_blank"><i class='fa fa-eye'></i></a> 
                                             @else
@@ -75,7 +82,7 @@
                                             @else
                                                 -
                                             @endif
-                                        </td>
+                                        </td> --}}
                                         
                                     </tr>
                                     @endforeach
