@@ -45,6 +45,9 @@ Route::get('/data/transaksi/tolak/{id}', 'TransaksiController@tolak');
 Route::get('/data/transaksi/batal/{id}', 'TransaksiController@batal');
 Route::get('/data/transaksi/proses/{id}', 'TransaksiController@proses');
 
+Route::post('/dp/update', 'TransaksiController@dp');
+Route::post('/lunas/update', 'TransaksiController@lunas');
+
 Route::get('/data/kontak', 'KontakController@index');
 Route::post('/data/kontak/edit/{id}', 'KontakController@update');
 

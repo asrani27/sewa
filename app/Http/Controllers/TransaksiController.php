@@ -46,4 +46,22 @@ class TransaksiController extends Controller
         toastr()->success('Pesanan Telah Di Proses Kembali');
         return back();
     }
+    
+    public function dp(Request $req)
+    {
+        $data = Sewa::find($req->id_transaksi);
+        $data->dp = $req->dp;
+        $data->save();
+        toastr()->success('DP Telah Di Simpan');
+        return back();
+    }
+
+    public function lunas(Request $req)
+    {
+        $data = Sewa::find($req->id_transaksi);
+        $data->lunas = $req->dp;
+        $data->save();
+        toastr()->success('Pelunasan Telah Di Simpan');
+        return back();
+    }
 }
