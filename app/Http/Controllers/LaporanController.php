@@ -35,7 +35,7 @@ class LaporanController extends Controller
     {
         $bulan = request()->get('bulan');
         $tahun = request()->get('tahun');
-        $data = Sewa::whereYear('created_at', '=', $tahun)->whereMonth('created_at', '=', $bulan)->where('gedung', '1')->where('status', '1')->get();
+        $data = Sewa::whereYear('tanggal', '=', $tahun)->whereMonth('tanggal', '=', $bulan)->where('gedung', '1')->where('status', '1')->get();
         $namabulan = '';
         if($bulan == '01'){
             $namabulan = 'Januari';
@@ -68,7 +68,7 @@ class LaporanController extends Controller
     public function gd1tahun()
     {
         $tahun = request()->get('tahun');
-        $data = Sewa::whereYear('created_at', '=', $tahun)->where('gedung', '1')->where('status', '1')->get();
+        $data = Sewa::whereYear('tanggal', '=', $tahun)->where('gedung', '1')->where('status', '1')->get();
         return view('admin.laporan.gd1.tahun',compact('data', 'tahun'));   
     }
     
@@ -76,7 +76,7 @@ class LaporanController extends Controller
     {
         $bulan = request()->get('bulan');
         $tahun = request()->get('tahun');
-        $data = Sewa::whereYear('created_at', '=', $tahun)->whereMonth('created_at', '=', $bulan)->where('gedung', '2')->where('status', '1')->get();
+        $data = Sewa::whereYear('tanggal', '=', $tahun)->whereMonth('tanggal', '=', $bulan)->where('gedung', '2')->where('status', '1')->get();
         $namabulan = '';
         if($bulan == '01'){
             $namabulan = 'Januari';
@@ -109,7 +109,7 @@ class LaporanController extends Controller
     public function gd2tahun()
     {
         $tahun = request()->get('tahun');
-        $data = Sewa::whereYear('created_at', '=', $tahun)->where('gedung', '2')->where('status', '1')->get();
+        $data = Sewa::whereYear('tanggal', '=', $tahun)->where('gedung', '2')->where('status', '1')->get();
         return view('admin.laporan.gd2.tahun',compact('data', 'tahun'));   
     }
 }
