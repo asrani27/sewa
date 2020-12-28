@@ -103,13 +103,13 @@ class LaporanController extends Controller
         }elseif($bulan == '12'){
             $namabulan = 'Desember';
         }
-        return view('admin.laporan.gd1.bulan',compact('data', 'namabulan', 'tahun'));   
+        return view('admin.laporan.gd2.bulan',compact('data', 'namabulan', 'tahun'));   
     }
 
     public function gd2tahun()
     {
         $tahun = request()->get('tahun');
         $data = Sewa::whereYear('created_at', '=', $tahun)->where('gedung', '1')->where('status', '1')->get();
-        return view('admin.laporan.gd1.tahun',compact('data', 'tahun'));   
+        return view('admin.laporan.gd2.tahun',compact('data', 'tahun'));   
     }
 }
