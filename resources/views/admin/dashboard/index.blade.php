@@ -124,6 +124,12 @@
                 </div>
               </div>
               <div class="form-group row">
+                <label for="inputEmail3" class="col-sm-4 col-form-label">Telp Pemesan</label>
+                <div class="col-sm-6">
+                <input type="text" class="form-control" name="telp" required>
+                </div>
+              </div>
+              <div class="form-group row">
                 <label for="inputEmail3" class="col-sm-4 col-form-label">Tanggal Pemesanan</label>
                 <div class="col-sm-6">
                 <input type="text" class="form-control" name="tanggal" id="tanggal_gd1" readonly>
@@ -161,6 +167,12 @@
                 <label for="inputEmail3" class="col-sm-4 col-form-label">Nama Pemesan</label>
                 <div class="col-sm-6">
                 <input type="text" class="form-control" name="nama" required>
+                </div>
+              </div>
+              <div class="form-group row">
+                <label for="inputEmail3" class="col-sm-4 col-form-label">Telp Pemesan</label>
+                <div class="col-sm-6">
+                <input type="text" class="form-control" name="telp" required>
                 </div>
               </div>
               <div class="form-group row">
@@ -244,9 +256,9 @@
             editable: true,
             selectable: true,
             select: function(start, end, allDay) {
-                var tanggal = moment(start).format();
-                document.getElementById("tanggal_gd1").value = tanggal;
-                $('#modal-default-gedung-raya1').modal('show');
+                // var tanggal = moment(start).format();
+                // document.getElementById("tanggal_gd1").value = tanggal;
+                // $('#modal-default-gedung-raya1').modal('show');
             },
             
             eventClick: function(calEvent, jsEvent, view) {
@@ -296,9 +308,9 @@
             editable: true,
             selectable: true,
             select: function(start, end, allDay) {
-                var tanggal = moment(start).format();
-                document.getElementById("tanggal_gd2").value = tanggal;
-                $('#modal-default-gedung-raya2').modal('show');
+                // var tanggal = moment(start).format();
+                // document.getElementById("tanggal_gd2").value = tanggal;
+                // $('#modal-default-gedung-raya2').modal('show');
             },
             
             eventClick: function(calEvent, jsEvent, view) {
