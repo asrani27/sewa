@@ -25,7 +25,7 @@
                     <form action="#" accept-charset="UTF-8" class="form form-horizontal" style="margin-bottom: 0;" method="post">
                         <div class="form-group">
                             <div class="col-md-12">
-                                <a class="btn btn-primary pesan-gedung1" data-id="{{Auth::user()->id}}">Pesan Gedung Raya 1</a>
+                                <a class="btn btn-primary pesan-gedung1"><i class='fa fa-shopping-cart'></i> Pesanan Saya</a>
                             </div>
                         </div>
                     </form>
@@ -38,7 +38,7 @@
                     <form action="#" accept-charset="UTF-8" class="form form-horizontal" style="margin-bottom: 0;" method="post">
                         <div class="form-group">
                             <div class="col-md-12">
-                                <a class="btn btn-primary" data-toggle='modal' href='#modal-example3'>Pesan Gedung Raya 2</a>
+                                
                             </div>
                         </div>
                     </form>
@@ -83,7 +83,7 @@
         </div>    
     </div>
 </div>
-<div class='modal fade' id='modal-example2' tabindex='-1'>
+<div class='modal fade' id='modal-default-gedung-raya1' tabindex='-1'>
     <div class='modal-dialog'>
         <div class='modal-content'>
             <div class='modal-header'>
@@ -115,7 +115,7 @@
                     </div>
                     <div class='form-group'>
                         <label for='inputText1'>Tanggal Acara</label>
-                        <input class='form-control' id='inputText1' type='date' name="tanggal" required>
+                        <input type="text" class="form-control" name="tanggal" id="tanggal_gd1" readonly>
                     </div>
                     <div class='form-group'>
                         <label for='inputText1'>Nama Acara</label>
@@ -131,7 +131,7 @@
     </div>
 </div>
 
-<div class='modal fade' id='modal-example3' tabindex='-1'>
+<div class='modal fade' id='modal-default-gedung-raya2' tabindex='-1'>
     <div class='modal-dialog'>
         <div class='modal-content'>
             <div class='modal-header'>
@@ -154,7 +154,7 @@
                     </div>
                     <div class='form-group'>
                         <label for='inputText1'>Tanggal Acara</label>
-                        <input class='form-control' id='inputText1' type='date' name="tanggal" required>
+                        <input type="text" class="form-control" name="tanggal" id="tanggal_gd2" readonly>
                     </div>
                     <div class='form-group'>
                         <label for='inputText1'>Nama Acara</label>
@@ -246,6 +246,12 @@ $(".pesan-gedung1").click(function() {
             droppable: true,
             editable: true,
             selectable: true,
+            select: function(start, end, allDay) {
+                var tanggal = moment(start).format();
+                document.getElementById("tanggal_gd1").value = tanggal;
+                console.log('tes');
+                $('#modal-default-gedung-raya1').modal('show');
+            },
             
             eventClick: function(calEvent, jsEvent, view) {
                 return bootbox.dialog({
@@ -295,6 +301,11 @@ $(".pesan-gedung1").click(function() {
             droppable: true,
             editable: true,
             selectable: true,
+            select: function(start, end, allDay) {
+                var tanggal = moment(start).format();
+                document.getElementById("tanggal_gd2").value = tanggal;
+                $('#modal-default-gedung-raya2').modal('show');
+            },
             
             eventClick: function(calEvent, jsEvent, view) {
                 return bootbox.dialog({
