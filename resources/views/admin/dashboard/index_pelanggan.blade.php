@@ -25,7 +25,7 @@
                     <form action="#" accept-charset="UTF-8" class="form form-horizontal" style="margin-bottom: 0;" method="post">
                         <div class="form-group">
                             <div class="col-md-12">
-                                <a class="btn btn-primary pesan-gedung1"><i class='fa fa-shopping-cart'></i> Pesanan Saya</a>
+                                <a class="btn btn-primary pesan-gedung1" href="/pesanan-saya"><i class='fa fa-shopping-cart'></i> Pesanan Saya</a>
                             </div>
                         </div>
                     </form>
