@@ -95,13 +95,13 @@
                                             @elseif($item->status == 1)
                                             <div class='text-right'>
                                                 <a class='btn btn-danger btn-xs' href='/data/transaksi/tolak/{{$item->id}}' onclick="return confirm('Yakin ingin membatalkan pesanan Ini?');">
-                                                    Tolak Pesanan
+                                                    Tolak
                                                 </a>
                                             </div>
                                             @else
                                             <div class='text-right'>
                                                 <a class='btn btn-success btn-xs' href='/data/transaksi/proses/{{$item->id}}' onclick="return confirm('Yakin ingin memproses pesanan Ini?');">
-                                                    Ubah Status Jadi Di Proses
+                                                     Di Proses
                                                 </a>
                                             </div>
                                             
