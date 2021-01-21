@@ -77,12 +77,16 @@
         </a>
     </li>
     @endif
+    @if (Auth::user()->google_id == null)
     <li class=''>
         <a href='/ganti-password'>
             <i class='fa fa-key'></i>
             <span>Ganti Password</span>
         </a>
     </li>
+    @else
+        
+    @endif
     <li class=''>
         <a href='/logout'>
             <i class='fa fa-mail-reply'></i>

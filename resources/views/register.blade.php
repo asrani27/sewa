@@ -83,6 +83,7 @@
                                     </div>
                                 </div>
                                 <button class='btn btn-success btn-block' type="submit">Daftar</button>
+                                <a href="{{ url('auth/google') }}" class='btn btn-primary btn-block'>Log in Via Google</a>
                                 <a href="/login" class='btn btn-danger btn-block'>Kembali</a>
                             </form>
                             <div class='text-center'>
