@@ -99,22 +99,22 @@
                                             
                                             <div class='text-right'>
                                             @if($item->status == 0)
-                                                <a class='btn btn-success btn-xs' href='/data/transaksi/setujui/{{$item->id}}' onclick="return confirm('Yakin Ingin menyetujui pesanan ini?');">
+                                                <a class='btn btn-success btn-xs' href='/transaksi/setujui/{{$item->id}}' onclick="return confirm('Yakin Ingin menyetujui pesanan ini?');">
                                                     Setujui
                                                 </a> - 
-                                                <a class='btn btn-danger btn-xs' href='/data/transaksi/tolak/{{$item->id}}' onclick="return confirm('Yakin Ingin Tolak Pesanan ini?');">
+                                                <a class='btn btn-danger btn-xs' href='/transaksi/tolak/{{$item->id}}' onclick="return confirm('Yakin Ingin Tolak Pesanan ini?');">
                                                     Tolak
                                                 </a>
                                             @elseif($item->status == 1)
-                                                <a class='btn btn-danger btn-xs' href='/data/transaksi/tolak/{{$item->id}}' onclick="return confirm('Yakin ingin membatalkan pesanan Ini?');">
+                                                <a class='btn btn-danger btn-xs' href='/transaksi/tolak/{{$item->id}}' onclick="return confirm('Yakin ingin membatalkan pesanan Ini?');">
                                                     Tolak
                                                 </a>
                                             @else
-                                                <a class='btn btn-success btn-xs' href='/data/transaksi/proses/{{$item->id}}' onclick="return confirm('Yakin ingin memproses pesanan Ini?');">
+                                                <a class='btn btn-success btn-xs' href='/transaksi/proses/{{$item->id}}' onclick="return confirm('Yakin ingin memproses pesanan Ini?');">
                                                      Di Proses
                                                 </a>
                                             @endif
-                                                <a class='btn btn-danger btn-xs' href='/data/transaksi/hapus/{{$item->id}}' onclick="return confirm('Yakin ingin menghapus pesanan Ini?');">
+                                                <a class='btn btn-danger btn-xs' href='/transaksi/hapus/{{$item->id}}' onclick="return confirm('Yakin ingin menghapus pesanan Ini?');">
                                                     <i class='fa fa-trash'></i>
                                                 </a>
 

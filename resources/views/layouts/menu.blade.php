@@ -55,8 +55,8 @@
         </ul>
     </li>
     
-    <li class='{{ Request::is('data/transaksi') ? 'active' : '' }}'>
-        <a href='/data/transaksi'>
+    <li class='{{ Request::is('transaksi') ? 'active' : '' }}'>
+        <a href='/transaksi'>
             <i class='fa fa-table'></i>
             <span>Transaksi</span>
         </a>

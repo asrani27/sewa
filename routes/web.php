@@ -41,12 +41,12 @@ Route::group(['middleware' => ['auth']], function () {
     Route::get('/data/harga', 'HargaController@index');
     Route::get('/data/harga/edit/{id}', 'HargaController@edit');
     Route::post('/data/harga/edit/{id}', 'HargaController@update');
-    Route::get('/data/transaksi', 'TransaksiController@index');
-    Route::get('/data/transaksi/setujui/{id}', 'TransaksiController@setujui');
-    Route::get('/data/transaksi/hapus/{id}', 'TransaksiController@hapus');
-    Route::get('/data/transaksi/tolak/{id}', 'TransaksiController@tolak');
-    Route::get('/data/transaksi/batal/{id}', 'TransaksiController@batal');
-    Route::get('/data/transaksi/proses/{id}', 'TransaksiController@proses');
+    Route::get('/transaksi', 'TransaksiController@index');
+    Route::get('/transaksi/setujui/{id}', 'TransaksiController@setujui');
+    Route::get('/transaksi/hapus/{id}', 'TransaksiController@hapus');
+    Route::get('/transaksi/tolak/{id}', 'TransaksiController@tolak');
+    Route::get('/transaksi/batal/{id}', 'TransaksiController@batal');
+    Route::get('/transaksi/proses/{id}', 'TransaksiController@proses');
 
     Route::post('/dp/update', 'TransaksiController@dp');
     Route::post('/lunas/update', 'TransaksiController@lunas');
