@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Sewa;
+use App\Harga;
 use Illuminate\Http\Request;
 
 class TransaksiController extends Controller
@@ -11,6 +12,21 @@ class TransaksiController extends Controller
     {
         $data = Sewa::get();
         return view('admin.transaksi.index', compact('data'));
+    }
+
+    public function add()
+    {
+        return view('admin.transaksi.add');
+    }
+
+    public function store(Request $req)
+    {
+        $attr = $req->all();
+        $attr['harga'] = Harga::find($req->gedung)->harga;
+
+        Sewa::create($attr);
+        toastr()->success('Data berhasil Disimpan');
+        return redirect('/transaksi');
     }
 
     public function setujui($id)

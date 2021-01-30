@@ -6,15 +6,15 @@
 <div class='col-xs-12'>
     <div class='page-header page-header-with-buttons'>
         <h1 class='pull-left'>
-            <i class='fa fa-money'></i>
+            <i class="fa fa-university"></i>
             <span>Transaksi Sewa Gedung</span>
         </h1>
         
-        {{-- <div class='pull-right'>
+        <div class='pull-right'>
             <div class='btn-group'>
-                <a href="/data/harga/tambah" class="btn btn-primary hidden-xs" href="#">Tambah</a>
+                <a href="/transaksi/add" class="btn btn-primary hidden-xs" href="#">Tambah</a>
             </div>
-        </div> --}}
+        </div>
     </div>
     <div class='row'>
         <div class='col-sm-12'>
